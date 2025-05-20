@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as n,N as l}from"./chunks/framework.a618ffea.js";const h=JSON.parse('{"title":"Paystack Webhook","description":"","frontmatter":{},"headers":[],"relativePath":"webhook/paystack.md"}'),o={name:"webhook/paystack.md"},e=l("",34),p=[e];function t(c,r,y,i,D,F){return n(),a("div",null,p)}const A=s(o,[["render",t]]);export{h as __pageData,A as default};

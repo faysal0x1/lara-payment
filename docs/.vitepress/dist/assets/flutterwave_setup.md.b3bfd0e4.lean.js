@@ -1,0 +1,1 @@
+import{_ as e,c as a,o as t,N as s}from"./chunks/framework.23813bcd.js";const d=JSON.parse('{"title":"Setup","description":"","frontmatter":{},"headers":[],"relativePath":"flutterwave/setup.md"}'),n={name:"flutterwave/setup.md"},p=s("",4),r=[p];function o(l,i,c,_,x,h){return t(),a("div",null,r)}const f=e(n,[["render",o]]);export{d as __pageData,f as default};

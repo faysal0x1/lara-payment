@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as n,N as l}from"./chunks/framework.a618ffea.js";const i=JSON.parse('{"title":"Transaction API","description":"","frontmatter":{},"headers":[],"relativePath":"paystack/transactions.md"}'),p={name:"paystack/transactions.md"},o=l("",15),e=[o];function t(c,r,D,y,F,C){return n(),a("div",null,e)}const u=s(p,[["render",t]]);export{i as __pageData,u as default};

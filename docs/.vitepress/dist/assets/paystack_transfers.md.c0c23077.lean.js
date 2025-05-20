@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,N as l}from"./chunks/framework.23813bcd.js";const i=JSON.parse('{"title":"Transfer API","description":"","frontmatter":{},"headers":[],"relativePath":"paystack/transfers.md"}'),p={name:"paystack/transfers.md"},o=l("",25),e=[o];function t(c,r,D,y,F,C){return n(),a("div",null,e)}const u=s(p,[["render",t]]);export{i as __pageData,u as default};

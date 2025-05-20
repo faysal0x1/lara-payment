@@ -1,7 +1,7 @@
 export default {
     base: '/lara-payment/',
-    title: "Laravel Multi Payment Gateway",
-    description: "Documentation for integrating the Laravel Multi Payment Gateway Package",
+    title: "Lara Payment Gateway",
+    description: "Documentation for integrating the Lara Payment Gateway Package",
 
     head: [
         ['link', {rel: 'icon', href: '/icon.ico'}],
@@ -10,7 +10,7 @@ export default {
 
     themeConfig: {
         logo: "/logo.png",
-        siteTitle: "Laravel Multi Payment Gateway",
+        siteTitle: "Lara Payment Gateway",
 
         // Navbar Link
 

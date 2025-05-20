@@ -1,0 +1,1 @@
+import{_ as s,c as e,o as a,N as t}from"./chunks/framework.23813bcd.js";const C=JSON.parse('{"title":"Setup","description":"","frontmatter":{},"headers":[],"relativePath":"paystack/setup.md"}'),n={name:"paystack/setup.md"},o=t("",4),p=[o];function r(l,c,i,x,_,h){return a(),e("div",null,p)}const u=s(n,[["render",r]]);export{C as __pageData,u as default};
