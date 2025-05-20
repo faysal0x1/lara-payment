@@ -8,7 +8,7 @@ First, make sure you have installed the package and published its configuration:
 
 ```bash
 composer require faysal0x1/lara-payment
-php artisan vendor:publish --provider="Faysal0x1\LaravelMultipaymentGateways\LaravelMultipaymentGatewaysServiceProvider"
+php artisan vendor:publish --provider="Faysal0x1\LaraPayment\LaravelMultipaymentGatewaysServiceProvider"
 ```
 
 ## Configuration
@@ -28,12 +28,49 @@ SSLCOMMERZ_CURRENCY=BDT
 
 ## Usage
 
-### 1. Initialize Payment
+### Using Facade
 
-To initiate a payment, inject the `SSLCommerzContract` into your controller:
+The easiest way to use SSL Commerz is through the Facade:
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\SSLCommerzContract;
+use Faysal0x1\LaraPayment\Facades\SSLCommerz;
+
+// In your controller or service
+public function initiatePayment(Request $request)
+{
+    $data = [
+        'total_amount' => 100,
+        'tran_id' => 'ORDER_' . uniqid(),
+        'product_name' => 'Test Product',
+        'product_category' => 'Test Category',
+        'product_profile' => 'general',
+        'cus_name' => 'Customer Name',
+        'cus_email' => 'customer@example.com',
+        'cus_add1' => 'Customer Address',
+        'cus_phone' => 'Customer Phone',
+    ];
+
+    $response = SSLCommerz::initiatePayment($data);
+    
+    // Redirect to SSL Commerz payment page
+    return redirect($response['GatewayPageURL']);
+}
+
+public function handleIPN(Request $request)
+{
+    if (SSLCommerz::validateIPN($request->all())) {
+        // Payment is valid
+        // Process your order
+    }
+}
+```
+
+### Using Dependency Injection
+
+Alternatively, you can use dependency injection:
+
+```php
+use Faysal0x1\LaraPayment\Contracts\SSLCommerzContract;
 
 class PaymentController extends Controller
 {
@@ -79,7 +116,7 @@ Handle the responses in your controller:
 ```php
 public function success(Request $request)
 {
-    if ($this->sslCommerz->validateIPN($request->all())) {
+    if (SSLCommerz::validateIPN($request->all())) {
         // Payment is successful
         // Process your order
         return view('payment.success');
@@ -115,7 +152,8 @@ Create a job to handle the webhook:
 ```php
 namespace App\Jobs;
 
-use Faysal0x1\LaravelMultipaymentGateways\Jobs\ProcessPaymentWebhookJob;
+use Faysal0x1\LaraPayment\Jobs\ProcessPaymentWebhookJob;
+use Faysal0x1\LaraPayment\Facades\SSLCommerz;
 
 class ProcessSSLCommerzWebhookJob extends ProcessPaymentWebhookJob
 {
@@ -123,7 +161,7 @@ class ProcessSSLCommerzWebhookJob extends ProcessPaymentWebhookJob
     {
         $payload = $this->webhookCall->payload;
         
-        if ($this->sslCommerz->validateIPN($payload)) {
+        if (SSLCommerz::validateIPN($payload)) {
             // Payment is valid
             // Update your order status
             // Send notification
@@ -192,10 +230,11 @@ Use these test credentials:
 The package provides a `PaymentVerificationException` for handling payment verification failures:
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\PaymentVerificationException;
+use Faysal0x1\LaraPayment\Exceptions\PaymentVerificationException;
+use Faysal0x1\LaraPayment\Facades\SSLCommerz;
 
 try {
-    $response = $this->sslCommerz->initiatePayment($data);
+    $response = SSLCommerz::initiatePayment($data);
 } catch (PaymentVerificationException $e) {
     // Handle payment verification failure
     return back()->with('error', $e->getMessage());

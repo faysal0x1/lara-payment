@@ -1,10 +1,10 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Facades;
+namespace Faysal0x1\LaraPayment\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\StripeContract;
-use Faysal0x1\LaravelMultipaymentGateways\Services\HttpClientWrapper;
+use Faysal0x1\LaraPayment\Contracts\StripeContract;
+use Faysal0x1\LaraPayment\Services\HttpClientWrapper;
 
 /**
  * @method static HttpClientWrapper httpClient()
@@ -14,7 +14,7 @@ use Faysal0x1\LaravelMultipaymentGateways\Services\HttpClientWrapper;
  * @method static HttpClientWrapper delete(string $url, array $formParams = [], array $query = [], array $headers = [])
  * @method static HttpClientWrapper patch(string $url, array $formParams = [], array $query = [], array $headers = [])
  *
- * @see \Faysal0x1\LaravelMultipaymentGateways\Gateways\StripeService
+ * @see \Faysal0x1\LaraPayment\Gateways\StripeService
  */
 class Stripe extends Facade
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Exceptions;
+namespace Faysal0x1\LaraPayment\Exceptions;
 
 use Exception;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\SSLCommerzContract;
+use Faysal0x1\LaraPayment\Contracts\SSLCommerzContract;
 
 class PaymentVerificationException extends Exception
 {

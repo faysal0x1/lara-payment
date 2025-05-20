@@ -1,6 +1,6 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Traits\Paystack;
+namespace Faysal0x1\LaraPayment\Traits\Paystack;
 
 trait BankTrait
 {

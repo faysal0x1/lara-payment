@@ -1,6 +1,6 @@
 <?php
 
-// config for Faysal0x1/LaravelMultipaymentGateways
+// config for Faysal0x1/LaraPayment
 return [
     'paystack' => [
         'base_uri' => env('PAYSTACK_BASE_URI'),
@@ -62,9 +62,9 @@ return [
             /*
              *  This class is responsible for verifying the validity of the signature header.
              *
-             * It should implement the interface \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\PaymentWebhookSignatureValidator.
+             * It should implement the interface \Faysal0x1\LaraPayment\SignatureValidator\PaymentWebhookSignatureValidator.
              */
-            'signature_validator' => \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\DefaultSignatureValidator::class,
+            'signature_validator' => \Faysal0x1\LaraPayment\SignatureValidator\DefaultSignatureValidator::class,
 
             /**
              * The webhook handler option allows you to choose how webhook requests are handled in your application.
@@ -80,14 +80,14 @@ return [
             /**
              * The payment_webhook_job option allows you to specify the job class that will be used to process webhook requests for payment methods.
              *
-             * This should be set to a class that extends \Faysal0x1\LaravelMultipaymentGateways\Jobs\ProcessPaymentWebhookJob.
+             * This should be set to a class that extends \Faysal0x1\LaraPayment\Jobs\ProcessPaymentWebhookJob.
              */
             'payment_webhook_job' => '',
 
             /**
              * The payment_webhook_event option allows you to specify the event class that will be used to process webhook requests for payment methods.
              *
-             * This should be set to a class that extends \Faysal0x1\LaravelMultipaymentGateways\Events\PaymentWebhookReceivedEvent.
+             * This should be set to a class that extends \Faysal0x1\LaraPayment\Events\PaymentWebhookReceivedEvent.
              */
             'payment_webhook_event' => '',
         ],
@@ -116,9 +116,9 @@ return [
             /*
              *  This class is responsible for verifying the validity of the signature header.
              *
-            * It should implement the interface \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\PaymentWebhookSignatureValidator.
+            * It should implement the interface \Faysal0x1\LaraPayment\SignatureValidator\PaymentWebhookSignatureValidator.
              */
-            'signature_validator' => \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\DefaultSignatureValidator::class,
+            'signature_validator' => \Faysal0x1\LaraPayment\SignatureValidator\DefaultSignatureValidator::class,
 
             /**
              * The webhook handler option allows you to choose how webhook requests are handled in your application.
@@ -134,14 +134,14 @@ return [
             /**
              * The payment_webhook_job option allows you to specify the job class that will be used to process webhook requests for payment methods.
              *
-             * This should be set to a class that extends \Faysal0x1\LaravelMultipaymentGateways\Jobs\ProcessPaymentWebhookJob.
+             * This should be set to a class that extends \Faysal0x1\LaraPayment\Jobs\ProcessPaymentWebhookJob.
              */
             'payment_webhook_job' => '',
 
             /**
              * The payment_webhook_event option allows you to specify the event class that will be used to process webhook requests for payment methods.
              *
-             * This should be set to a class that extends \Faysal0x1\LaravelMultipaymentGateways\Events\PaymentWebhookReceivedEvent.
+             * This should be set to a class that extends \Faysal0x1\LaraPayment\Events\PaymentWebhookReceivedEvent.
              */
             'payment_webhook_event' => '',
         ],
@@ -170,9 +170,9 @@ return [
             /*
              *  This class is responsible for verifying the validity of the signature header.
              *
-            * It should implement the interface \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\PaymentWebhookSignatureValidator.
+            * It should implement the interface \Faysal0x1\LaraPayment\SignatureValidator\PaymentWebhookSignatureValidator.
              */
-            'signature_validator' => \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\DefaultSignatureValidator::class,
+            'signature_validator' => \Faysal0x1\LaraPayment\SignatureValidator\DefaultSignatureValidator::class,
 
             /**
              * The webhook handler option allows you to choose how webhook requests are handled in your application.
@@ -188,14 +188,14 @@ return [
             /**
              * The payment_webhook_job option allows you to specify the job class that will be used to process webhook requests for payment methods.
              *
-             * This should be set to a class that extends \Faysal0x1\LaravelMultipaymentGateways\Jobs\ProcessPaymentWebhookJob.
+             * This should be set to a class that extends \Faysal0x1\LaraPayment\Jobs\ProcessPaymentWebhookJob.
              */
             'payment_webhook_job' => '',
 
             /**
              * The payment_webhook_event option allows you to specify the event class that will be used to process webhook requests for payment methods.
              *
-             * This should be set to a class that extends \Faysal0x1\LaravelMultipaymentGateways\Events\PaymentWebhookReceivedEvent.
+             * This should be set to a class that extends \Faysal0x1\LaraPayment\Events\PaymentWebhookReceivedEvent.
              */
             'payment_webhook_event' => '',
         ],
@@ -224,9 +224,9 @@ return [
             /*
              *  This class is responsible for verifying the validity of the signature header.
              *
-             * It should implement the interface \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\PaymentWebhookSignatureValidator.
+             * It should implement the interface \Faysal0x1\LaraPayment\SignatureValidator\PaymentWebhookSignatureValidator.
              */
-            'signature_validator' => \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\DefaultSignatureValidator::class,
+            'signature_validator' => \Faysal0x1\LaraPayment\SignatureValidator\DefaultSignatureValidator::class,
 
             /**
              * The webhook handler option allows you to choose how webhook requests are handled in your application.
@@ -242,14 +242,14 @@ return [
             /**
              * The payment_webhook_job option allows you to specify the job class that will be used to process webhook requests for payment methods.
              *
-             * This should be set to a class that extends \Faysal0x1\LaravelMultipaymentGateways\Jobs\ProcessPaymentWebhookJob.
+             * This should be set to a class that extends \Faysal0x1\LaraPayment\Jobs\ProcessPaymentWebhookJob.
              */
             'payment_webhook_job' => '',
 
             /**
              * The payment_webhook_event option allows you to specify the event class that will be used to process webhook requests for payment methods.
              *
-             * This should be set to a class that extends \Faysal0x1\LaravelMultipaymentGateways\Events\PaymentWebhookReceivedEvent.
+             * This should be set to a class that extends \Faysal0x1\LaraPayment\Events\PaymentWebhookReceivedEvent.
              */
             'payment_webhook_event' => '',
         ],

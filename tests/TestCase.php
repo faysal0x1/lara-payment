@@ -1,13 +1,13 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Tests;
+namespace Faysal0x1\LaraPayment\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\FlutterwaveContract;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\StripeContract;
-use Faysal0x1\LaravelMultipaymentGateways\LaravelMultipaymentGatewaysServiceProvider;
-use Faysal0x1\LaravelMultipaymentGateways\Services\HttpClientWrapper;
+use Faysal0x1\LaraPayment\Contracts\FlutterwaveContract;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Contracts\StripeContract;
+use Faysal0x1\LaraPayment\LaravelMultipaymentGatewaysServiceProvider;
+use Faysal0x1\LaraPayment\Services\HttpClientWrapper;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -17,7 +17,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Faysal0x1\\LaravelMultipaymentGateways\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Faysal0x1\\LaraPayment\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
 
         $this->paystack = $this->instance('paystack', $this->mock(PaystackContract::class));

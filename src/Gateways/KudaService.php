@@ -1,9 +1,9 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Gateways;
+namespace Faysal0x1\LaraPayment\Gateways;
 
-use Faysal0x1\LaravelMultipaymentGateways\Abstracts\BaseGateWay;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\InvalidConfigurationException;
+use Faysal0x1\LaraPayment\Abstracts\BaseGateWay;
+use Faysal0x1\LaraPayment\Exceptions\InvalidConfigurationException;
 
 class KudaService extends BaseGateWay
 {

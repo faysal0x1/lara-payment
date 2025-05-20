@@ -1,6 +1,6 @@
 <?php
 
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\FlutterwaveContract;
+use Faysal0x1\LaraPayment\Contracts\FlutterwaveContract;
 
 beforeEach(function () {
     $this->flutterwave = $this->mock(FlutterwaveContract::class);

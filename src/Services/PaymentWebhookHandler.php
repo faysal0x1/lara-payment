@@ -1,16 +1,16 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Services;
+namespace Faysal0x1\LaraPayment\Services;
 
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
-use Faysal0x1\LaravelMultipaymentGateways\Events\PaymentWebhookReceivedEvent;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\InvalidPaymentWebhookConfig;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\InvalidPaymentWebhookHandler;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\InvalidPaymentWebhookSignature;
-use Faysal0x1\LaravelMultipaymentGateways\Models\PaymentWebhookLog;
+use Faysal0x1\LaraPayment\Events\PaymentWebhookReceivedEvent;
+use Faysal0x1\LaraPayment\Exceptions\InvalidPaymentWebhookConfig;
+use Faysal0x1\LaraPayment\Exceptions\InvalidPaymentWebhookHandler;
+use Faysal0x1\LaraPayment\Exceptions\InvalidPaymentWebhookSignature;
+use Faysal0x1\LaraPayment\Models\PaymentWebhookLog;
 
 class PaymentWebhookHandler
 {

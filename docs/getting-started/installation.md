@@ -16,5 +16,5 @@ composer require faysal0x1/lara-payment
 Publish the configuration file using this command:
 
 ```bash
-php artisan vendor:publish --provider="Faysal0x1\LaravelMultipaymentGateways\LaravelMultipaymentGatewaysServiceProvider"
+php artisan vendor:publish --provider="Faysal0x1\LaraPayment\LaravelMultipaymentGatewaysServiceProvider"
 ```

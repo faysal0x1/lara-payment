@@ -1,11 +1,11 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Models;
+namespace Faysal0x1\LaraPayment\Models;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use Faysal0x1\LaravelMultipaymentGateways\Services\PaymentWebhookConfig;
+use Faysal0x1\LaraPayment\Services\PaymentWebhookConfig;
 
 class PaymentWebhookLog extends Model
 {

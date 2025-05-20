@@ -1,6 +1,6 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Constants;
+namespace Faysal0x1\LaraPayment\Constants;
 
 class FlutterwaveConstant
 {

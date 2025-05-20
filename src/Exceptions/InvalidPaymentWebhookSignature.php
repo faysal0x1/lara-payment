@@ -1,6 +1,6 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Exceptions;
+namespace Faysal0x1\LaraPayment\Exceptions;
 
 use Exception;
 

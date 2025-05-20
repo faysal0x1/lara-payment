@@ -1,9 +1,9 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Traits\Flutterwave;
+namespace Faysal0x1\LaraPayment\Traits\Flutterwave;
 
-use Faysal0x1\LaravelMultipaymentGateways\Constants\FlutterwaveConstant;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\InvalidConfigurationException;
+use Faysal0x1\LaraPayment\Constants\FlutterwaveConstant;
+use Faysal0x1\LaraPayment\Exceptions\InvalidConfigurationException;
 
 trait ChargeTrait
 {

@@ -1,6 +1,6 @@
 <?php
 
-use Faysal0x1\LaravelMultipaymentGateways\Services\HttpClientWrapper;
+use Faysal0x1\LaraPayment\Services\HttpClientWrapper;
 
 it('can take url from any payment gateway in HttpClientWrapper', function () {
     // randomly pick a base uri from the config

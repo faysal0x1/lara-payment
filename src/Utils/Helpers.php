@@ -1,8 +1,8 @@
 <?php
 
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\FlutterwaveContract;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\StripeContract;
+use Faysal0x1\LaraPayment\Contracts\FlutterwaveContract;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Contracts\StripeContract;
 
 if (! function_exists('paystack')) {
     function paystack(): PaystackContract

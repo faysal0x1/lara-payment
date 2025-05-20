@@ -1,6 +1,6 @@
 <?php
 
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\StripeContract;
+use Faysal0x1\LaraPayment\Contracts\StripeContract;
 
 it('can instantiate StripeContract instance', function () {
     expect($this->stripe)

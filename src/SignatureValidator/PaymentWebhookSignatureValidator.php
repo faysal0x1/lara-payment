@@ -1,9 +1,9 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\SignatureValidator;
+namespace Faysal0x1\LaraPayment\SignatureValidator;
 
 use Illuminate\Http\Request;
-use Faysal0x1\LaravelMultipaymentGateways\Services\PaymentWebhookConfig;
+use Faysal0x1\LaraPayment\Services\PaymentWebhookConfig;
 
 interface PaymentWebhookSignatureValidator
 {

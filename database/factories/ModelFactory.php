@@ -1,6 +1,6 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Database\Factories;
+namespace Faysal0x1\LaraPayment\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

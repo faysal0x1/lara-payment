@@ -31,9 +31,9 @@ Ensure that this setup is present inside the `multipayment-gateways.php` configu
     /*
      * This class is responsible for verifying the validity of the signature header.
      *
-     * It should implement the interface \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\PaymentWebhookSignatureValidator.
+     * It should implement the interface \Faysal0x1\LaraPayment\SignatureValidator\PaymentWebhookSignatureValidator.
      */
-    'signature_validator' => \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\DefaultSignatureValidator::class,
+    'signature_validator' => \Faysal0x1\LaraPayment\SignatureValidator\DefaultSignatureValidator::class,
 
     /**
      * The webhook handler option allows you to choose how webhook requests are handled in your application.
@@ -49,14 +49,14 @@ Ensure that this setup is present inside the `multipayment-gateways.php` configu
     /**
      * The payment_webhook_job option allows you to specify the job class that will be used to process webhook requests for payment methods.
      *
-     * This should be set to a class that extends \Faysal0x1\LaravelMultipaymentGateways\Jobs\ProcessPaymentWebhookJob.
+     * This should be set to a class that extends \Faysal0x1\LaraPayment\Jobs\ProcessPaymentWebhookJob.
      */
     'payment_webhook_job' => '',
 
     /**
      * The payment_webhook_event option allows you to specify the event class that will be used to process webhook requests for payment methods.
      *
-     * This should be set to a class that extends \Faysal0x1\LaravelMultipaymentGateways\Events\PaymentWebhookReceivedEvent.
+     * This should be set to a class that extends \Faysal0x1\LaraPayment\Events\PaymentWebhookReceivedEvent.
      */
     'payment_webhook_event' => '',
 ]
@@ -66,11 +66,11 @@ Ensure that this setup is present inside the `multipayment-gateways.php` configu
 The package ships with a default signature validator for paystack which is used as shown below:
 
 ```php
-'signature_validator' => \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\DefaultSignatureValidator::class,
+'signature_validator' => \Faysal0x1\LaraPayment\SignatureValidator\DefaultSignatureValidator::class,
 ```
 
 ## Custom Signature Validator 
-To use a custom class for signature validation, create a class that implements the `Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\PaymentWebhookSignatureValidator` interface. Then ensure to update the paystack webhook config to use your custom class as illustrated below.
+To use a custom class for signature validation, create a class that implements the `Faysal0x1\LaraPayment\SignatureValidator\PaymentWebhookSignatureValidator` interface. Then ensure to update the paystack webhook config to use your custom class as illustrated below.
 
 ```php
 'signature_validator' => YourCustomSignatureValidator::class,
@@ -95,7 +95,7 @@ If you prefer to use an event, you can update it following the example provided 
 ```
 
 ## Handle Webhook Using Job
-To manage paystack webhook events using `job`, create a job class that extends the `Faysal0x1\LaravelMultipaymentGateways\Jobs\ProcessPaymentWebhookJob` class, and modify the configuration as illustrated below:
+To manage paystack webhook events using `job`, create a job class that extends the `Faysal0x1\LaraPayment\Jobs\ProcessPaymentWebhookJob` class, and modify the configuration as illustrated below:
 
 ```php
 'payment_webhook_job' => YourCustomPaystackWebhookJob::class,
@@ -104,7 +104,7 @@ To manage paystack webhook events using `job`, create a job class that extends t
 Sample Usage:
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Jobs\ProcessPaymentWebhookJob;
+use Faysal0x1\LaraPayment\Jobs\ProcessPaymentWebhookJob;
 
 class YourCustomPaystackWebhookJob extends ProcessPaymentWebhookJob implements ShouldQueue
 {
@@ -119,16 +119,16 @@ class YourCustomPaystackWebhookJob extends ProcessPaymentWebhookJob implements S
 ```
 
 ## Handle Webhook Using Event
-To manage paystack webhook events using `event`, you need to create a listener class that listens to the `Faysal0x1\LaravelMultipaymentGateways\Events\PaymentWebhookReceived` event triggered by the package. Then, you should adjust the configuration settings as shown below:
+To manage paystack webhook events using `event`, you need to create a listener class that listens to the `Faysal0x1\LaraPayment\Events\PaymentWebhookReceived` event triggered by the package. Then, you should adjust the configuration settings as shown below:
 
 ```php
-'payment_webhook_event' => '\Faysal0x1\LaravelMultipaymentGateways\Events\PaymentWebhookReceivedEvent',
+'payment_webhook_event' => '\Faysal0x1\LaraPayment\Events\PaymentWebhookReceivedEvent',
 ```
 
 Register the event listener in the `EventServiceProvider` class.
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Events\PaymentWebhookReceivedEvent;
+use Faysal0x1\LaraPayment\Events\PaymentWebhookReceivedEvent;
 use App\Listeners\YourCustomPaystackWebhookListener;
 
 protected $listen = [
@@ -141,7 +141,7 @@ protected $listen = [
 Sample Usage:
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Events\PaymentWebhookReceivedEvent;
+use Faysal0x1\LaraPayment\Events\PaymentWebhookReceivedEvent;
 class YourCustomPaystackWebhookListener
 {
     public function handle(PaymentWebhookReceivedEvent $event)

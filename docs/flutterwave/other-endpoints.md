@@ -9,7 +9,7 @@ that you don't have to pass them when making request to other endpoints.
 # You can use the `HttpClientWrapper` class in any of the following ways:
 ## Using Facade
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Facades\Flutterwave;
+use Faysal0x1\LaraPayment\Facades\Flutterwave;
 
 // Example of making get request 
 $response = Flutterwave::httpClient()->get('/banks/056');
@@ -28,7 +28,7 @@ dd($response);
 
 ## Using Dependency Injection
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\FlutterwaveContract;
+use Faysal0x1\LaraPayment\Contracts\FlutterwaveContract;
 
 class FlutterwavePaymentController extends Controller
 {

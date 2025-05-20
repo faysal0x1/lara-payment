@@ -52,13 +52,13 @@
             "src/Utils/Helpers.php"
         ],
         "psr-4": {
-            "Faysal0x1\\LaravelMultipaymentGateways\\": "src",
-            "Faysal0x1\\LaravelMultipaymentGateways\\Database\\Factories\\": "database/factories"
+            "Faysal0x1\\LaraPayment\\": "src",
+            "Faysal0x1\\LaraPayment\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Faysal0x1\\LaravelMultipaymentGateways\\Tests\\": "tests"
+            "Faysal0x1\\LaraPayment\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -78,10 +78,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Faysal0x1\\LaravelMultipaymentGateways\\LaravelMultipaymentGatewaysServiceProvider"
+                "Faysal0x1\\LaraPayment\\LaravelMultipaymentGatewaysServiceProvider"
             ],
             "aliases": {
-                "LaravelMultipaymentGateways": "Faysal0x1\\LaravelMultipaymentGateways\\Facades\\LaravelMultipaymentGateways"
+                "LaraPayment": "Faysal0x1\\LaraPayment\\Facades\\LaraPayment"
             }
         }
     },

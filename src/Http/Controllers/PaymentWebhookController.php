@@ -1,10 +1,10 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Http\Controllers;
+namespace Faysal0x1\LaraPayment\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Faysal0x1\LaravelMultipaymentGateways\Services\PaymentWebhookConfig;
-use Faysal0x1\LaravelMultipaymentGateways\Services\PaymentWebhookHandler;
+use Faysal0x1\LaraPayment\Services\PaymentWebhookConfig;
+use Faysal0x1\LaraPayment\Services\PaymentWebhookHandler;
 
 class PaymentWebhookController
 {

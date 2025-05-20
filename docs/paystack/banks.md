@@ -5,8 +5,8 @@
 Get list of all banks.
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Facades\Paystack;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
 
 // Using Facade
 $banks = Paystack::getBanks();
@@ -27,8 +27,8 @@ $banks = paystack()->getBanks();
 Resolve account a bank account number.
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Facades\Paystack;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
 
 $payload = [
     'account_number' => 1234567890,

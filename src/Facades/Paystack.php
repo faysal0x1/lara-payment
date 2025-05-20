@@ -1,11 +1,11 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Facades;
+namespace Faysal0x1\LaraPayment\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
-use Faysal0x1\LaravelMultipaymentGateways\Gateways\PaystackService;
-use Faysal0x1\LaravelMultipaymentGateways\Services\HttpClientWrapper;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Gateways\PaystackService;
+use Faysal0x1\LaraPayment\Services\HttpClientWrapper;
 
 /**
  * @method static HttpClientWrapper httpClient()

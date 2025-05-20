@@ -68,6 +68,15 @@ export default {
                     {text: "Other Endpoints", link: "/flutterwave/other-endpoints.html"},
                 ],
             },
+            {
+                text: "SSL COMMERZ",
+                collapsible: true,
+                items: [
+                    {text: "Introduction", link: "/sslcommerz/index.html"},
+                    // {text: "Setup", link: "/sslcommerz/setup.html"},
+                    // {text: "Other Endpoints", link: "/sslcommerz/other-endpoints.html"},
+                ],
+            },
 
             {
                 text: "STRIPE",

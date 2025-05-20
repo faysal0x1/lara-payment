@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Gateways;
+namespace Faysal0x1\LaraPayment\Gateways;
 
-use Faysal0x1\LaravelMultipaymentGateways\Abstracts\BaseGateWay;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\InvalidConfigurationException;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\Paystack\BankTrait;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\Paystack\TransactionTrait;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\Paystack\TransferTrait;
+use Faysal0x1\LaraPayment\Abstracts\BaseGateWay;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Exceptions\InvalidConfigurationException;
+use Faysal0x1\LaraPayment\Traits\Paystack\BankTrait;
+use Faysal0x1\LaraPayment\Traits\Paystack\TransactionTrait;
+use Faysal0x1\LaraPayment\Traits\Paystack\TransferTrait;
 
 class PaystackService extends BaseGateWay implements PaystackContract
 {

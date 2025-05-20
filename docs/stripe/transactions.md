@@ -16,7 +16,7 @@ The package allow you to make payment requests using the `facade`, `helper` or `
     - Create a controller to handle the payment request using Facade.
        ```php
        use Illuminate\Http\Request;
-       use Faysal0x1\LaravelMultipaymentGateways\Facades\Stripe;
+       use Faysal0x1\LaraPayment\Facades\Stripe;
     
        class StripePaymentController extends Controller
        {
@@ -37,7 +37,7 @@ The package allow you to make payment requests using the `facade`, `helper` or `
     - Create a controller to handle the payment request using Dependency Injection through the `StripeContract` interface.
         ```php
         use Illuminate\Http\Request;
-        use Faysal0x1\LaravelMultipaymentGateways\Contracts\StripeContract;
+        use Faysal0x1\LaraPayment\Contracts\StripeContract;
      
         class StripePaymentController extends Controller
         {
@@ -91,7 +91,7 @@ You can confirm the payment intent in the following ways:
 2. **Create a controller to handle the payment confirmation request using Facade:**
     ```php
     use Illuminate\Http\Request;
-    use Faysal0x1\LaravelMultipaymentGateways\Facades\Stripe;
+    use Faysal0x1\LaraPayment\Facades\Stripe;
     
     class StripePaymentController extends Controller
     {

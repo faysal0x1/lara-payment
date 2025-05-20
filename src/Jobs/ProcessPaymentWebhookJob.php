@@ -1,6 +1,6 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Jobs;
+namespace Faysal0x1\LaraPayment\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

@@ -5,8 +5,8 @@
 Get all transfers.
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Facades\Paystack;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
 
 // Using Facade
 $transfers = Paystack::getAllTransfers();
@@ -26,8 +26,8 @@ $transfers = paystack()->getAllTransfers();
 Get details of a single transfer.
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Facades\Paystack;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
 
 $transferId = 5;
 // Using Facade
@@ -47,8 +47,8 @@ $transfer = paystack()->getTransfer($transferId);
 Create a new transfer recipient.
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Facades\Paystack;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
 
 $recipientPayload = [
     "type" => "nuban",
@@ -75,8 +75,8 @@ $recipient = paystack()->createTransferRecipient($recipientPayload);
 Create a new bulk transfer recipient.
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Facades\Paystack;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
 
 $recipientPayload = [
     [
@@ -114,8 +114,8 @@ $recipient = paystack()->createBulkTransferRecipients($recipientPayload);
 Initiate a new transfer.
 
 ```php
-use \Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use \Faysal0x1\LaraPayment\Facades\Paystack;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
 
 $transferPayload = [
     "source" => "balance", 
@@ -143,7 +143,7 @@ $transfer = paystack()->initiateTransfer($transferPayload);
 Initiate a new bulk transfer.
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;use Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;use Faysal0x1\LaraPayment\Facades\Paystack;
 
 $transferPayload = [
     "currency" => "NGN",
@@ -182,8 +182,8 @@ $transfer = paystack()->initiateBulkTransfer($transferPayload);
 Finalize a transfer.
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Facades\Paystack;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
 
 $transferPayload = [
     "transfer_code" => "TRF_vsyqdmlzble3uii", 
@@ -209,8 +209,8 @@ $transfer = paystack()->finalizeTransfer($transferPayload);
 Verify a transfer.
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Facades\Paystack;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
 
 $transferReference = "TRF_vsyqdmlzble3uii";
 

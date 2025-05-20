@@ -1,9 +1,9 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Traits\Paystack;
+namespace Faysal0x1\LaraPayment\Traits\Paystack;
 
 use Illuminate\Http\RedirectResponse;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\PaymentVerificationException;
+use Faysal0x1\LaraPayment\Exceptions\PaymentVerificationException;
 
 trait TransactionTrait
 {

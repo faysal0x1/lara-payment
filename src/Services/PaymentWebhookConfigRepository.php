@@ -1,6 +1,6 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Services;
+namespace Faysal0x1\LaraPayment\Services;
 
 class PaymentWebhookConfigRepository
 {

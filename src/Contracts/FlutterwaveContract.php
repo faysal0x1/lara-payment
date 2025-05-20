@@ -1,6 +1,6 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Contracts;
+namespace Faysal0x1\LaraPayment\Contracts;
 
 interface FlutterwaveContract
 {

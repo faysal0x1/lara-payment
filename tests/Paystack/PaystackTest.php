@@ -2,7 +2,7 @@
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Http;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
 
 it('can instantiate PaystackContract instance', function () {
     expect($this->paystack)

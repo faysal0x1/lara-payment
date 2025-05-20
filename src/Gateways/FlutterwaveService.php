@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Gateways;
+namespace Faysal0x1\LaraPayment\Gateways;
 
-use Faysal0x1\LaravelMultipaymentGateways\Abstracts\BaseGateWay;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\FlutterwaveContract;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\InvalidConfigurationException;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\ConsumesExternalServices;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\Flutterwave\BankTrait;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\Flutterwave\ChargeTrait;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\Flutterwave\OtpTrait;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\Flutterwave\PaymentPlanTrait;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\Flutterwave\SettlementTrait;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\Flutterwave\SubscriptionTrait;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\Flutterwave\TransactionTrait;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\Flutterwave\TransferBeneficiaryTrait;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\Flutterwave\TransferTrait;
+use Faysal0x1\LaraPayment\Abstracts\BaseGateWay;
+use Faysal0x1\LaraPayment\Contracts\FlutterwaveContract;
+use Faysal0x1\LaraPayment\Exceptions\InvalidConfigurationException;
+use Faysal0x1\LaraPayment\Traits\ConsumesExternalServices;
+use Faysal0x1\LaraPayment\Traits\Flutterwave\BankTrait;
+use Faysal0x1\LaraPayment\Traits\Flutterwave\ChargeTrait;
+use Faysal0x1\LaraPayment\Traits\Flutterwave\OtpTrait;
+use Faysal0x1\LaraPayment\Traits\Flutterwave\PaymentPlanTrait;
+use Faysal0x1\LaraPayment\Traits\Flutterwave\SettlementTrait;
+use Faysal0x1\LaraPayment\Traits\Flutterwave\SubscriptionTrait;
+use Faysal0x1\LaraPayment\Traits\Flutterwave\TransactionTrait;
+use Faysal0x1\LaraPayment\Traits\Flutterwave\TransferBeneficiaryTrait;
+use Faysal0x1\LaraPayment\Traits\Flutterwave\TransferTrait;
 
 class FlutterwaveService extends BaseGateWay implements FlutterwaveContract
 {

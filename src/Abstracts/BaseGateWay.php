@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Abstracts;
+namespace Faysal0x1\LaraPayment\Abstracts;
 
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\GatewayContract;
-use Faysal0x1\LaravelMultipaymentGateways\Services\HttpClientWrapper;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\ConsumesExternalServices;
+use Faysal0x1\LaraPayment\Contracts\GatewayContract;
+use Faysal0x1\LaraPayment\Services\HttpClientWrapper;
+use Faysal0x1\LaraPayment\Traits\ConsumesExternalServices;
 
 abstract class BaseGateWay implements GatewayContract
 {

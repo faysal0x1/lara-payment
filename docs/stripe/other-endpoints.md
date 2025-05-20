@@ -9,7 +9,7 @@ that you don't have to pass them when making request to other endpoints.
 # You can use the `HttpClientWrapper` class in any of the following ways:
 ## Using Facade
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Facades\Stripe;
+use Faysal0x1\LaraPayment\Facades\Stripe;
 
 // This will make a request to the endpoint: https://api.stripe.com/v1/customers/cus_4QFOF3xrvBT2nU as a get request
 $response = Stripe::httpClient()->get('v1/customers/cus_4QFOF3xrvBT2nU');
@@ -28,7 +28,7 @@ dd($response);
 
 ## Using Dependency Injection
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\StripeContract;
+use Faysal0x1\LaraPayment\Contracts\StripeContract;
 
 class StripePaymentController extends Controller
 {

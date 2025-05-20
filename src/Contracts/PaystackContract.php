@@ -1,12 +1,12 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Contracts;
+namespace Faysal0x1\LaraPayment\Contracts;
 
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\RedirectResponse;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\HttpMethodFoundException;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\InvalidConfigurationException;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\PaymentVerificationException;
+use Faysal0x1\LaraPayment\Exceptions\HttpMethodFoundException;
+use Faysal0x1\LaraPayment\Exceptions\InvalidConfigurationException;
+use Faysal0x1\LaraPayment\Exceptions\PaymentVerificationException;
 
 interface PaystackContract
 {

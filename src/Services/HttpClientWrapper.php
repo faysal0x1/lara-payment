@@ -1,9 +1,9 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Services;
+namespace Faysal0x1\LaraPayment\Services;
 
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\HttpClientWrapperContract;
-use Faysal0x1\LaravelMultipaymentGateways\Traits\ConsumesExternalServices;
+use Faysal0x1\LaraPayment\Contracts\HttpClientWrapperContract;
+use Faysal0x1\LaraPayment\Traits\ConsumesExternalServices;
 
 class HttpClientWrapper implements HttpClientWrapperContract
 {

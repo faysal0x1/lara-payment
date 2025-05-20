@@ -1,12 +1,12 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Services;
+namespace Faysal0x1\LaraPayment\Services;
 
-use Faysal0x1\LaravelMultipaymentGateways\Events\PaymentWebhookReceivedEvent;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\InvalidPaymentWebhookConfig;
-use Faysal0x1\LaravelMultipaymentGateways\Jobs\ProcessPaymentWebhookJob;
-use Faysal0x1\LaravelMultipaymentGateways\Models\PaymentWebhookLog;
-use Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\PaymentWebhookSignatureValidator;
+use Faysal0x1\LaraPayment\Events\PaymentWebhookReceivedEvent;
+use Faysal0x1\LaraPayment\Exceptions\InvalidPaymentWebhookConfig;
+use Faysal0x1\LaraPayment\Jobs\ProcessPaymentWebhookJob;
+use Faysal0x1\LaraPayment\Models\PaymentWebhookLog;
+use Faysal0x1\LaraPayment\SignatureValidator\PaymentWebhookSignatureValidator;
 
 class PaymentWebhookConfig
 {

@@ -1,21 +1,21 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways;
+namespace Faysal0x1\LaraPayment;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\FlutterwaveContract;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\SSLCommerzContract;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\StripeContract;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\InvalidPaymentWebhookConfig;
-use Faysal0x1\LaravelMultipaymentGateways\Gateways\FlutterwaveService;
-use Faysal0x1\LaravelMultipaymentGateways\Gateways\PaystackService;
-use Faysal0x1\LaravelMultipaymentGateways\Gateways\SSLCommerzService;
-use Faysal0x1\LaravelMultipaymentGateways\Gateways\StripeService;
-use Faysal0x1\LaravelMultipaymentGateways\Http\Controllers\PaymentWebhookController;
-use Faysal0x1\LaravelMultipaymentGateways\Services\PaymentWebhookConfig;
-use Faysal0x1\LaravelMultipaymentGateways\Services\PaymentWebhookConfigRepository;
+use Faysal0x1\LaraPayment\Contracts\FlutterwaveContract;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Contracts\SSLCommerzContract;
+use Faysal0x1\LaraPayment\Contracts\StripeContract;
+use Faysal0x1\LaraPayment\Exceptions\InvalidPaymentWebhookConfig;
+use Faysal0x1\LaraPayment\Gateways\FlutterwaveService;
+use Faysal0x1\LaraPayment\Gateways\PaystackService;
+use Faysal0x1\LaraPayment\Gateways\SSLCommerzService;
+use Faysal0x1\LaraPayment\Gateways\StripeService;
+use Faysal0x1\LaraPayment\Http\Controllers\PaymentWebhookController;
+use Faysal0x1\LaraPayment\Services\PaymentWebhookConfig;
+use Faysal0x1\LaraPayment\Services\PaymentWebhookConfigRepository;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

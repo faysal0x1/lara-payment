@@ -1,11 +1,11 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Traits;
+namespace Faysal0x1\LaraPayment\Traits;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\HttpClientException;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\HttpMethodFoundException;
+use Faysal0x1\LaraPayment\Exceptions\HttpClientException;
+use Faysal0x1\LaraPayment\Exceptions\HttpMethodFoundException;
 
 trait ConsumesExternalServices
 {

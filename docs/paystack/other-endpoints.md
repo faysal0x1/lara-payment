@@ -9,7 +9,7 @@ that you don't have to pass them when making request to other endpoints.
 # You can use the `HttpClientWrapper` class in any of the following ways:
 ## Using Facade
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
+use Faysal0x1\LaraPayment\Facades\Paystack;
 
 // Example of making http post request
  $fields = [
@@ -43,7 +43,7 @@ dd($response);
 
 ## Using Dependency Injection
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
 
 class PaystackPaymentController extends Controller
 {

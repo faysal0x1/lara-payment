@@ -5,8 +5,8 @@
 Get list of transactions.
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Facades\Paystack;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
 
 $optionalPayload = [
     'perPage' => 50,
@@ -34,8 +34,8 @@ $transactions = paystack()->getAllTransactions($optionalPayload);
 Get a single transaction.
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Facades\Paystack;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
 
 $transactionId = "TRX_1234567890";
 
@@ -58,8 +58,8 @@ $transactions = paystack()->getTransaction($transactionId);
 Verify a transaction.
 
 ```php
-use Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
-use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use Faysal0x1\LaraPayment\Facades\Paystack;
+use Faysal0x1\LaraPayment\Contracts\PaystackContract;
 
 $transactionId = "Trx_1234567890";
 
@@ -92,7 +92,7 @@ Web Payment can be handled in the following ways:
     - Create a controller to handle the payment request using Facade.
       ```php
       use Illuminate\Http\Request;
-      use Faysal0x1\LaravelMultipaymentGateways\Facades\Paystack;
+      use Faysal0x1\LaraPayment\Facades\Paystack;
      
       class PaystackPaymentController extends Controller
       {
@@ -133,7 +133,7 @@ Web Payment can be handled in the following ways:
     - Create a controller to handle the payment request using Dependency Injection through the `PaystackContract` interface.
       ```php
       use Illuminate\Http\Request;
-      use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+      use Faysal0x1\LaraPayment\Contracts\PaystackContract;
      
       class PaystackPaymentController extends Controller
       {
@@ -178,7 +178,7 @@ Web Payment can be handled in the following ways:
     - Create a controller to handle the payment response.
       ```php
         use Illuminate\Http\Request;
-        use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+        use Faysal0x1\LaraPayment\Contracts\PaystackContract;
         
         class PaystackPaymentController extends Controller
         {
@@ -206,7 +206,7 @@ For an api based application where the client is served by a mobile app or on a 
 
     ```php
     use Illuminate\Http\Request;
-    use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+    use Faysal0x1\LaraPayment\Contracts\PaystackContract;
     
     class PaystackPaymentController extends Controller
     {

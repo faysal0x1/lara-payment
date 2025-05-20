@@ -1,10 +1,10 @@
 <?php
 
-namespace Faysal0x1\LaravelMultipaymentGateways\Contracts;
+namespace Faysal0x1\LaraPayment\Contracts;
 
 use GuzzleHttp\Exception\GuzzleException;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\HttpMethodFoundException;
-use Faysal0x1\LaravelMultipaymentGateways\Exceptions\InvalidConfigurationException;
+use Faysal0x1\LaraPayment\Exceptions\HttpMethodFoundException;
+use Faysal0x1\LaraPayment\Exceptions\InvalidConfigurationException;
 
 interface StripeContract
 {
