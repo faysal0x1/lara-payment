@@ -33,4 +33,4 @@ import{_ as s,c as a,o as n,N as l}from"./chunks/framework.a618ffea.js";const i=
 <span class="line"><span style="color:#676E95;font-style:italic;">// Using Helper</span></span>
 <span class="line"><span style="color:#89DDFF;">$</span><span style="color:#A6ACCD;">account </span><span style="color:#89DDFF;">=</span><span style="color:#A6ACCD;"> </span><span style="color:#82AAFF;">paystack</span><span style="color:#89DDFF;">()-&gt;</span><span style="color:#82AAFF;">resolveAccountNumber</span><span style="color:#89DDFF;">($</span><span style="color:#A6ACCD;">payload</span><span style="color:#89DDFF;">);</span></span>
 <span class="line"></span>
-<span class="line"></span></code></pre></div>`,7),e=[o];function t(c,r,y,D,F,C){return n(),a("div",null,e)}const u=s(p,[["render",t]]);export{i as __pageData,u as default};
+<span class="line"></span></code></pre></div>`,7),e=[o];function c(t,r,y,D,F,C){return n(),a("div",null,e)}const u=s(p,[["render",c]]);export{i as __pageData,u as default};

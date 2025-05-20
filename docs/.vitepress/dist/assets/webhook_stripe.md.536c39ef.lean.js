@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as n,N as l}from"./chunks/framework.a618ffea.js";const h=JSON.parse('{"title":"Stripe Webhook","description":"","frontmatter":{},"headers":[],"relativePath":"webhook/stripe.md"}'),e={name:"webhook/stripe.md"},o=l("",34),p=[o];function t(c,r,i,y,D,F){return n(),a("div",null,p)}const A=s(e,[["render",t]]);export{h as __pageData,A as default};
