@@ -1,5 +1,5 @@
 {
-    "name": "laravel-multipayment-gateways",
+    "name": "lara-payment",
     "version": "1.0.0",
     "description": "A Laravel Package that makes implementation of multiple payment Gateways endpoints and webhooks seamless",
     "main": "index.js",
@@ -21,7 +21,7 @@
           "role": "Developer"
       }
   ],
-    "repository": "https://github.com/Faysal0x1/laravel-multipayment-gateways/docs",
+    "repository": "https://github.com/Faysal0x1/lara-payment/docs",
     "license": "ISC",
     "dependencies": {
       "vitepress": "^1.0.0-alpha.27",

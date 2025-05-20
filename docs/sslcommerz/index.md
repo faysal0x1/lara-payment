@@ -7,7 +7,7 @@ This guide will help you integrate SSL Commerz payment gateway into your Laravel
 First, make sure you have installed the package and published its configuration:
 
 ```bash
-composer require faysal0x1/laravel-multipayment-gateways
+composer require faysal0x1/lara-payment
 php artisan vendor:publish --provider="Faysal0x1\LaravelMultipaymentGateways\LaravelMultipaymentGatewaysServiceProvider"
 ```
 

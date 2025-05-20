@@ -39,7 +39,7 @@ class TestCase extends Orchestra
         config()->set('database.default', 'testing');
 
         /*
-        $migration = include __DIR__.'/../database/migrations/create_laravel-multipayment-gateways_table.php.stub';
+        $migration = include __DIR__.'/../database/migrations/create_lara-payment_table.php.stub';
         $migration->up();
         */
     }

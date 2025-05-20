@@ -1,11 +1,11 @@
 {
-    "name": "faysal0x1/laravel-multipayment-gateways",
+    "name": "faysal0x1/lara-payment",
     "description": "A Laravel Package that makes implementation of multiple payment Gateways endpoints and webhooks seamless",
     "keywords": [
         "Faysal0x1",
         "Cybernerdie",
         "laravel",
-        "laravel-multipayment-gateways",
+        "lara-payment",
         "Payments",
         "Paystack",
         "Laravel Paystack",
@@ -19,7 +19,7 @@
         "Paystack Laravel",
         "Multi Payment Gateways"
     ],
-    "homepage": "https://github.com/faysal0x1/laravel-multipayment-gateways",
+    "homepage": "https://github.com/faysal0x1/lara-payment",
     "license": "MIT",
     "authors": [
         {

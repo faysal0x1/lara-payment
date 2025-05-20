@@ -1,14 +1,14 @@
 # Changelog
 
-All notable changes to `laravel-multipayment-gateways` will be documented in this file.
+All notable changes to `lara-payment` will be documented in this file.
 
 ## 1.7.2 - 2024-03-30
 
 ### What's Changed
 
-* Bump dependabot/fetch-metadata from 1.6.0 to 2.0.0 by @dependabot in https://github.com/Faysal0x1/laravel-multipayment-gateways/pull/21
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.0.0 by @dependabot in https://github.com/Faysal0x1/lara-payment/pull/21
 
-**Full Changelog**: https://github.com/Faysal0x1/laravel-multipayment-gateways/compare/1.7.1...1.7.2
+**Full Changelog**: https://github.com/Faysal0x1/lara-payment/compare/1.7.1...1.7.2
 
 ## 1.7.1 - 2024-03-30
 
@@ -16,7 +16,7 @@ All notable changes to `laravel-multipayment-gateways` will be documented in thi
 
 - Fix Bug when using stripe Payment Gateway Invalid request (check that your POST content type is application/x-www-form-urlencoded)
 
-**Full Changelog**: https://github.com/Faysal0x1/laravel-multipayment-gateways/compare/1.7.0...1.7.1
+**Full Changelog**: https://github.com/Faysal0x1/lara-payment/compare/1.7.0...1.7.1
 
 ## 1.7.0 - 2024-03-13
 

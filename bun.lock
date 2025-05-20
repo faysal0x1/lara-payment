@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "laravel-multipayment-gateways",
+      "name": "lara-payment",
       "dependencies": {
         "vitepress": "^1.0.0-alpha.27",
         "vue": "^3.2.41",

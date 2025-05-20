@@ -14,7 +14,7 @@ hero:
       link: /getting-started/installation
     - theme: alt
       text: View on GitHub
-      link: https://github.com/Faysal0x1/laravel-multipayment-gateways
+      link: https://github.com/Faysal0x1/lara-payment
 
 # Meta property
 head:

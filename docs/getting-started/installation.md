@@ -8,7 +8,7 @@ By following these instructions, you will be able to easily install the package.
 To get the latest version of the package, simply use composer
 
 ```bash
-composer require faysal0x1/laravel-multipayment-gateways
+composer require faysal0x1/lara-payment
 ```
 
 ## Configuration
