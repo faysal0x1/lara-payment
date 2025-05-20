@@ -1,4 +1,5 @@
 export default {
+    base: '/lara-payment/',
     title: "Laravel Multi Payment Gateway",
     description: "Documentation for integrating the Laravel Multi Payment Gateway Package",
 
