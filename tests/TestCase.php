@@ -38,6 +38,17 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
+        // Set up SSL Commerz configuration
+        config()->set('multipayment-gateways.sslcommerz', [
+            'base_uri' => 'https://sandbox.sslcommerz.com',
+            'store_id' => 'test_store_id',
+            'store_password' => 'test_store_password',
+            'success_url' => 'http://localhost/success',
+            'fail_url' => 'http://localhost/fail',
+            'cancel_url' => 'http://localhost/cancel',
+            'ipn_url' => 'http://localhost/ipn',
+        ]);
+
         /*
         $migration = include __DIR__.'/../database/migrations/create_lara-payment_table.php.stub';
         $migration->up();
