@@ -10,6 +10,8 @@ use Faysal0x1\LaraPayment\Contracts\SSLCommerzContract;
 /**
  * @method static array initiatePayment(array $data)
  * @method static bool validateIPN(array $data)
+ * @method static array getTransactionStatus(string $tranId)
+ * @method static array initiateRefund(string $tranId, float $amount, string $refundReason = '')
  * 
  * @see \Faysal0x1\LaraPayment\Contracts\SSLCommerzContract
  */

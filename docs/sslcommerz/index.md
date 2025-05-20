@@ -1,250 +1,308 @@
-# SSL Commerz Integration
+# SSL Commerz Integration Guide
 
-This guide will help you integrate SSL Commerz payment gateway into your Laravel application using the Laravel Multipayment Gateways package.
+This comprehensive guide will help you integrate SSL Commerz payment gateway into your Laravel application using the Laravel Multipayment Gateways package.
+
+## Table of Contents
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Basic Usage](#basic-usage)
+- [Advanced Features](#advanced-features)
+- [Webhook Handling](#webhook-handling)
+- [Testing](#testing)
+- [Security](#security)
+- [Troubleshooting](#troubleshooting)
 
 ## Installation
 
-First, make sure you have installed the package and published its configuration:
-
+1. Install the package via Composer:
 ```bash
 composer require faysal0x1/lara-payment
-php artisan vendor:publish --provider="Faysal0x1\LaraPayment\LaravelMultipaymentGatewaysServiceProvider"
+```
+
+2. Publish the configuration and assets:
+```bash
+php artisan vendor:publish --provider="Faysal0x1\LaraPayment\SslcommerzLaravelServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Faysal0x1\LaraPayment\SslcommerzLaravelServiceProvider" --tag="controllers"
+php artisan vendor:publish --provider="Faysal0x1\LaraPayment\SslcommerzLaravelServiceProvider" --tag="views"
+php artisan vendor:publish --provider="Faysal0x1\LaraPayment\SslcommerzLaravelServiceProvider" --tag="migrations"
+```
+
+3. Run the migrations:
+```bash
+php artisan migrate
 ```
 
 ## Configuration
 
-Add the following environment variables to your `.env` file:
+### Environment Variables
+
+Add these variables to your `.env` file:
 
 ```env
-SSLCOMMERZ_BASE_URI=https://sandbox.sslcommerz.com
+SSLCOMMERZ_SANDBOX=true
 SSLCOMMERZ_STORE_ID=your_store_id
-SSLCOMMERZ_STORE_PASSWORD=your_store_password
-SSLCOMMERZ_SUCCESS_URL=your_success_url
-SSLCOMMERZ_FAIL_URL=your_fail_url
-SSLCOMMERZ_CANCEL_URL=your_cancel_url
-SSLCOMMERZ_IPN_URL=your_ipn_url
-SSLCOMMERZ_CURRENCY=BDT
+SSLCOMMERZ__STORE_PASSWORD=your_store_password
 ```
 
-## Usage
+### Configuration File
+
+The `config/sslcommerz.php` file contains these options:
+
+```php
+return [
+    'sandbox' => env("SSLCOMMERZ_SANDBOX", false),
+    'middleware' => 'web',
+    'store_id' => env("SSLCOMMERZ_STORE_ID"),
+    'store_password' => env("SSLCOMMERZ__STORE_PASSWORD"),
+    'success_url' => '/sslcommerz/success',
+    'failed_url' => '/sslcommerz/fail',
+    'cancel_url' => '/sslcommerz/cancel',
+    'ipn_url' => '/sslcommerz/ipn',
+    'return_response' => 'html', // html or json
+];
+```
+
+## Basic Usage
 
 ### Using Facade
 
-The easiest way to use SSL Commerz is through the Facade:
-
 ```php
-use Faysal0x1\LaraPayment\Facades\SSLCommerz;
+use Faysal0x1\LaraPayment\Facade\SSLCommerzPayment;
 
-// In your controller or service
-public function initiatePayment(Request $request)
-{
-    $data = [
-        'total_amount' => 100,
-        'tran_id' => 'ORDER_' . uniqid(),
-        'product_name' => 'Test Product',
-        'product_category' => 'Test Category',
-        'product_profile' => 'general',
-        'cus_name' => 'Customer Name',
-        'cus_email' => 'customer@example.com',
-        'cus_add1' => 'Customer Address',
-        'cus_phone' => 'Customer Phone',
-    ];
+// Basic payment
+$data = [
+    'total_amount' => 100,
+    'currency' => 'BDT',
+    'tran_id' => uniqid(),
+    'product_category' => 'Test Category'
+];
 
-    $response = SSLCommerz::initiatePayment($data);
-    
-    // Redirect to SSL Commerz payment page
-    return redirect($response['GatewayPageURL']);
-}
+$customer = [
+    'name' => 'John Doe',
+    'email' => 'john@example.com',
+    'address_1' => 'Dhaka',
+    'phone' => '8801XXXXXXXXX',
+    'country' => 'Bangladesh'
+];
 
-public function handleIPN(Request $request)
-{
-    if (SSLCommerz::validateIPN($request->all())) {
-        // Payment is valid
-        // Process your order
-    }
-}
+$shipment = [
+    'shipping_method' => 'Yes',
+    'ship_name' => 'John Doe',
+    'ship_add1' => 'Dhaka',
+    'ship_city' => 'Dhaka',
+    'ship_country' => 'Bangladesh'
+];
+
+$response = SSLCommerzPayment::makePayment($data)
+    ->setCustomerInfo($customer)
+    ->setShipmentInfo($shipment);
 ```
 
-### Using Dependency Injection
+### Using Controller
 
-Alternatively, you can use dependency injection:
+The package provides two example controllers:
+
+1. Easy Checkout (`/example1`):
+```php
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+```
+
+2. Hosted Checkout (`/example2`):
+```php
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+```
+
+### Available Routes
 
 ```php
-use Faysal0x1\LaraPayment\Contracts\SSLCommerzContract;
+Route::group(['middleware' => config('sslcommerz.middleware')], function () {
+    Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+    Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+    Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+    Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+    Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+    Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+    Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+    Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+});
+```
 
-class PaymentController extends Controller
+## Advanced Features
+
+### 1. EMI Payment Support
+
+```php
+$sslc = new SslCommerzNotification();
+$sslc->enableEMI(3, 12, false); // 3 months installment, max 12 months
+```
+
+### 2. Airline Ticket Profile
+
+```php
+$airlineInfo = [
+    'hours_till_departure' => '24',
+    'flight_type' => 'domestic',
+    'pnr' => 'ABC123',
+    'journey_from_to' => 'Dhaka to Chittagong'
+];
+$sslc->setAirlineTicketProfile($airlineInfo);
+```
+
+### 3. Travel Vertical Profile
+
+```php
+$travelInfo = [
+    'hotel_name' => 'Grand Hotel',
+    'length_of_stay' => 3,
+    'check_in_time' => '14:00',
+    'hotel_city' => 'Dhaka'
+];
+$sslc->setTravelVerticalProfile($travelInfo);
+```
+
+### 4. Telecom Vertical Profile
+
+```php
+$telecomInfo = [
+    'product_type' => 'prepaid',
+    'topup_number' => '8801XXXXXXXXX',
+    'country_topup' => 'Bangladesh'
+];
+$sslc->setTelecomVerticleProfile($telecomInfo);
+```
+
+## Webhook Handling
+
+### IPN (Instant Payment Notification)
+
+1. Add the webhook route:
+```php
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+```
+
+2. Handle the IPN in your controller:
+```php
+public function ipn(Request $request)
 {
-    public function __construct(private SSLCommerzContract $sslCommerz)
-    {
-    }
-
-    public function initiatePayment(Request $request)
-    {
-        $data = [
-            'total_amount' => 100,
-            'tran_id' => 'ORDER_' . uniqid(),
-            'product_name' => 'Test Product',
-            'product_category' => 'Test Category',
-            'product_profile' => 'general',
-            'cus_name' => 'Customer Name',
-            'cus_email' => 'customer@example.com',
-            'cus_add1' => 'Customer Address',
-            'cus_phone' => 'Customer Phone',
-        ];
-
-        $response = $this->sslCommerz->initiatePayment($data);
+    if ($request->input('tran_id')) {
+        $tran_id = $request->input('tran_id');
+        $order_details = $this->findOrder($tran_id);
         
-        // Redirect to SSL Commerz payment page
-        return redirect($response['GatewayPageURL']);
-    }
-}
-```
-
-### 2. Handle Payment Response
-
-Create routes to handle success, fail, and cancel URLs:
-
-```php
-// routes/web.php
-Route::get('payment/success', [PaymentController::class, 'success'])->name('payment.success');
-Route::get('payment/fail', [PaymentController::class, 'fail'])->name('payment.fail');
-Route::get('payment/cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
-```
-
-Handle the responses in your controller:
-
-```php
-public function success(Request $request)
-{
-    if (SSLCommerz::validateIPN($request->all())) {
-        // Payment is successful
-        // Process your order
-        return view('payment.success');
-    }
-    
-    return redirect()->route('payment.fail');
-}
-
-public function fail(Request $request)
-{
-    // Handle failed payment
-    return view('payment.fail');
-}
-
-public function cancel(Request $request)
-{
-    // Handle cancelled payment
-    return view('payment.cancel');
-}
-```
-
-### 3. Handle IPN (Instant Payment Notification)
-
-Add the webhook route to handle IPN:
-
-```php
-// routes/web.php
-Route::webhooks('payment/sslcommerz/webhook', 'sslcommerz');
-```
-
-Create a job to handle the webhook:
-
-```php
-namespace App\Jobs;
-
-use Faysal0x1\LaraPayment\Jobs\ProcessPaymentWebhookJob;
-use Faysal0x1\LaraPayment\Facades\SSLCommerz;
-
-class ProcessSSLCommerzWebhookJob extends ProcessPaymentWebhookJob
-{
-    public function handle()
-    {
-        $payload = $this->webhookCall->payload;
-        
-        if (SSLCommerz::validateIPN($payload)) {
-            // Payment is valid
-            // Update your order status
-            // Send notification
+        if ($order_details->status == 'Pending') {
+            $validation = SSLCommerzPayment::orderValidate(
+                $request->all(), 
+                $tran_id, 
+                $order_details->amount, 
+                $order_details->currency
+            );
+            
+            if ($validation) {
+                $this->orderUpdate($tran_id, 'Processing');
+                return SSLCommerzPayment::returnSuccess(
+                    $tran_id,
+                    "Transaction is successfully Completed",
+                    '/'
+                );
+            }
         }
     }
+    return SSLCommerzPayment::returnFail('', "Invalid Data", '/');
 }
 ```
-
-Register the job in your config:
-
-```php
-// config/multipayment-gateways.php
-'webhooks' => [
-    [
-        'name' => 'sslcommerz',
-        'payment_webhook_job' => App\Jobs\ProcessSSLCommerzWebhookJob::class,
-        // ... other config
-    ],
-],
-```
-
-## Available Parameters
-
-When initiating a payment, you can pass the following parameters:
-
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| total_amount | Yes | Total amount to be paid |
-| tran_id | Yes | Unique transaction ID |
-| product_name | Yes | Name of the product |
-| product_category | Yes | Category of the product |
-| product_profile | Yes | Profile of the product (general, physical-goods, etc.) |
-| cus_name | Yes | Customer name |
-| cus_email | Yes | Customer email |
-| cus_add1 | No | Customer address line 1 |
-| cus_add2 | No | Customer address line 2 |
-| cus_city | No | Customer city |
-| cus_state | No | Customer state |
-| cus_postcode | No | Customer postal code |
-| cus_country | No | Customer country (default: Bangladesh) |
-| cus_phone | No | Customer phone number |
-| cus_fax | No | Customer fax number |
-| shipping_method | No | Shipping method (default: NO) |
-| ship_name | No | Shipping name |
-| ship_add1 | No | Shipping address line 1 |
-| ship_add2 | No | Shipping address line 2 |
-| ship_city | No | Shipping city |
-| ship_state | No | Shipping state |
-| ship_postcode | No | Shipping postal code |
-| ship_country | No | Shipping country (default: Bangladesh) |
 
 ## Testing
 
-For testing, use the sandbox environment by setting:
+### Sandbox Environment
 
+1. Set sandbox mode in `.env`:
 ```env
-SSLCOMMERZ_BASE_URI=https://sandbox.sslcommerz.com
+SSLCOMMERZ_SANDBOX=true
 ```
 
-Use these test credentials:
+2. Use test credentials:
 - Store ID: `testbox`
 - Store Password: `qwerty`
 
-## Error Handling
+### Test Scenarios
 
-The package provides a `PaymentVerificationException` for handling payment verification failures:
+1. Successful Payment:
+- Use test card: 4111 1111 1111 1111
+- Expiry: Any future date
+- CVV: Any 3 digits
+
+2. Failed Payment:
+- Use test card: 4111 1111 1111 1111
+- Expiry: Any past date
+- CVV: Any 3 digits
+
+## Security
+
+### Best Practices
+
+1. Environment Variables:
+- Never commit `.env` file
+- Use different credentials for development and production
+
+2. SSL/TLS:
+- Always use HTTPS in production
+- Enable SSL verification
+
+3. Data Validation:
+- Validate all incoming data
+- Use proper error handling
+- Log all transactions
+
+4. Store Credentials:
+- Keep store ID and password secure
+- Rotate credentials periodically
+- Use strong passwords
+
+## Troubleshooting
+
+### Common Issues
+
+1. Payment Not Processing:
+- Check store credentials
+- Verify sandbox mode setting
+- Check network connectivity
+
+2. IPN Not Working:
+- Verify IPN URL is accessible
+- Check server logs
+- Validate IPN response
+
+3. Transaction Validation Failed:
+- Verify transaction amount
+- Check currency
+- Validate store credentials
+
+### Support
+
+For issues and questions:
+1. Check the [GitHub repository](https://github.com/faysal0x1/lara-payment)
+2. Create an issue with detailed information
+3. Include logs and error messages
+4. Provide steps to reproduce
+
+## Database Structure
+
+The package creates an `orders` table:
 
 ```php
-use Faysal0x1\LaraPayment\Exceptions\PaymentVerificationException;
-use Faysal0x1\LaraPayment\Facades\SSLCommerz;
-
-try {
-    $response = SSLCommerz::initiatePayment($data);
-} catch (PaymentVerificationException $e) {
-    // Handle payment verification failure
-    return back()->with('error', $e->getMessage());
-}
+Schema::create('orders', function (Blueprint $table) {
+    $table->id();
+    $table->string('name', 191)->nullable();
+    $table->string('email', 191)->nullable();
+    $table->string('phone', 60)->nullable();
+    $table->double('amount')->default(0);
+    $table->text('address')->nullable();
+    $table->string('status', 20)->default('Pending');
+    $table->string('transaction_id', 191);
+    $table->string('currency', 20)->nullable()->default('BDT');
+    $table->timestamps();
+});
 ```
 
-## Security Considerations
+## License
 
-1. Always validate IPN responses using the `validateIPN` method
-2. Keep your store ID and password secure
-3. Use HTTPS for all payment-related URLs
-4. Implement proper error handling
-5. Log all payment transactions for audit purposes 
+This package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
