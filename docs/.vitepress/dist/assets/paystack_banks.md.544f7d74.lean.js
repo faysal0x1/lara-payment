@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,N as l}from"./chunks/framework.a618ffea.js";const i=JSON.parse('{"title":"Bank API","description":"","frontmatter":{},"headers":[],"relativePath":"paystack/banks.md"}'),p={name:"paystack/banks.md"},o=l("",7),e=[o];function t(c,r,y,D,F,C){return n(),a("div",null,e)}const u=s(p,[["render",t]]);export{i as __pageData,u as default};

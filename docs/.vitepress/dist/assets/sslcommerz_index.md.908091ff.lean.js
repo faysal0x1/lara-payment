@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,N as l}from"./chunks/framework.a618ffea.js";const A=JSON.parse('{"title":"SSL Commerz Integration","description":"","frontmatter":{},"headers":[],"relativePath":"sslcommerz/index.md"}'),p={name:"sslcommerz/index.md"},o=l("",37),e=[o];function t(c,r,D,y,F,i){return n(),a("div",null,e)}const d=s(p,[["render",t]]);export{A as __pageData,d as default};

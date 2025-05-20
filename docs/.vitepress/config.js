@@ -24,7 +24,8 @@ export default {
                     {text: "Flutterwave", link: "https://developer.flutterwave.com/reference/introduction"},
                 ]
             },
-            {text: "Github", link: "https://github.com/Faysal0x1/laravel-multipayment-gateways"}
+            {text: "Github", link: "https://github.com/Faysal0x1/laravel-multipayment-gateways"},
+            {text: "SSL Commerz", link: "/sslcommerz/"}
         ],
 
         // Sidebar
@@ -123,5 +124,9 @@ export default {
             theme: "material-palenight",
             lineNumbers: true,
         },
+
+        socialLinks: [
+            { icon: 'github', link: 'https://github.com/Faysal0x1/laravel-multipayment-gateways' },
+        ],
     },
 };

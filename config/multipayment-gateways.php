@@ -26,6 +26,17 @@ return [
         'encryption_key' => env('FLUTTERWAVE_ENCRYPTION_KEY'),
     ],
 
+    'sslcommerz' => [
+        'base_uri' => env('SSLCOMMERZ_BASE_URI', 'https://sandbox.sslcommerz.com'),
+        'store_id' => env('SSLCOMMERZ_STORE_ID'),
+        'store_password' => env('SSLCOMMERZ_STORE_PASSWORD'),
+        'success_url' => env('SSLCOMMERZ_SUCCESS_URL'),
+        'fail_url' => env('SSLCOMMERZ_FAIL_URL'),
+        'cancel_url' => env('SSLCOMMERZ_CANCEL_URL'),
+        'ipn_url' => env('SSLCOMMERZ_IPN_URL'),
+        'currency' => env('SSLCOMMERZ_CURRENCY', 'BDT'),
+    ],
+
     'webhooks' => [
         [
             /*
@@ -160,6 +171,60 @@ return [
              *  This class is responsible for verifying the validity of the signature header.
              *
             * It should implement the interface \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\PaymentWebhookSignatureValidator.
+             */
+            'signature_validator' => \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\DefaultSignatureValidator::class,
+
+            /**
+             * The webhook handler option allows you to choose how webhook requests are handled in your application.
+             *
+             * Available options:
+             * - 'job': Webhook requests will be handled by a job.
+             * - 'event': Webhook requests will be handled by an event.
+             *
+             * Default: 'job'
+             */
+            'payment_webhook_handler' => 'job',
+
+            /**
+             * The payment_webhook_job option allows you to specify the job class that will be used to process webhook requests for payment methods.
+             *
+             * This should be set to a class that extends \Faysal0x1\LaravelMultipaymentGateways\Jobs\ProcessPaymentWebhookJob.
+             */
+            'payment_webhook_job' => '',
+
+            /**
+             * The payment_webhook_event option allows you to specify the event class that will be used to process webhook requests for payment methods.
+             *
+             * This should be set to a class that extends \Faysal0x1\LaravelMultipaymentGateways\Events\PaymentWebhookReceivedEvent.
+             */
+            'payment_webhook_event' => '',
+        ],
+
+        [
+            /*
+             * This refers to the name of the payment gateway being used.
+             */
+            'name' => 'sslcommerz',
+
+            /**
+             * When set to false, the package will not verify the signature of the webhook call.
+             */
+            'verify_signature' => true,
+
+            /*
+             * This secret key is used to validate the signature of the webhook call.
+             */
+            'signing_secret' => env('SSLCOMMERZ_STORE_PASSWORD'),
+
+            /*
+             * This refers to the header that holds the signature.
+             */
+            'signature_header_name' => 'HTTP_X_SSLCOMMERZ_SIGNATURE',
+
+            /*
+             *  This class is responsible for verifying the validity of the signature header.
+             *
+             * It should implement the interface \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\PaymentWebhookSignatureValidator.
              */
             'signature_validator' => \Faysal0x1\LaravelMultipaymentGateways\SignatureValidator\DefaultSignatureValidator::class,
 

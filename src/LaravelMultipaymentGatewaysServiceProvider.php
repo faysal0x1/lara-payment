@@ -6,10 +6,12 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Faysal0x1\LaravelMultipaymentGateways\Contracts\FlutterwaveContract;
 use Faysal0x1\LaravelMultipaymentGateways\Contracts\PaystackContract;
+use Faysal0x1\LaravelMultipaymentGateways\Contracts\SSLCommerzContract;
 use Faysal0x1\LaravelMultipaymentGateways\Contracts\StripeContract;
 use Faysal0x1\LaravelMultipaymentGateways\Exceptions\InvalidPaymentWebhookConfig;
 use Faysal0x1\LaravelMultipaymentGateways\Gateways\FlutterwaveService;
 use Faysal0x1\LaravelMultipaymentGateways\Gateways\PaystackService;
+use Faysal0x1\LaravelMultipaymentGateways\Gateways\SSLCommerzService;
 use Faysal0x1\LaravelMultipaymentGateways\Gateways\StripeService;
 use Faysal0x1\LaravelMultipaymentGateways\Http\Controllers\PaymentWebhookController;
 use Faysal0x1\LaravelMultipaymentGateways\Services\PaymentWebhookConfig;
@@ -32,6 +34,7 @@ class LaravelMultipaymentGatewaysServiceProvider extends PackageServiceProvider
         $this->app->bind(PaystackContract::class, PaystackService::class);
         $this->app->bind(StripeContract::class, StripeService::class);
         $this->app->bind(FlutterwaveContract::class, FlutterwaveService::class);
+        $this->app->bind(SSLCommerzContract::class, SSLCommerzService::class);
 
         $this->registerWebHookConfig();
     }
@@ -44,6 +47,7 @@ class LaravelMultipaymentGatewaysServiceProvider extends PackageServiceProvider
             PaymentWebhookConfigRepository::class,
             PaymentWebhookConfig::class,
             FlutterwaveContract::class,
+            SSLCommerzContract::class,
         ];
     }
 
